@@ -8,4 +8,4 @@ RFR_Interpolation_MPI为TSVD-RFR-MF插值方法，
 所有的数据最终都生成VTK格式的三维数据集，可以用paraview查看
 
 xyzv231testdata.txt为验证测试数据。
-errorhelper.py是计算最终生成结果与验证测试数据的MAE和RMSE误差
+errorhelper.py是计算最终插值结果与验证测试数据的MAE和RMSE误差
