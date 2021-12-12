@@ -2,6 +2,7 @@
 xyzv231.txt为插值样本点，
 
 run_mpi.py是MPI启动程序，支持windows单机并行测试，需要修改“python_file=相应的MPI脚本”
+
 OK_interpolation_MPI为OK插值方法，
 RFR_Interpolation_MPI为TSVD-RFR-MF插值方法，
 
