@@ -2,7 +2,7 @@ import vtk
 
 
 
-fp1 = open("11well.txt")
+fp1 = open("12well.txt")
 
 
 points=vtk.vtkPoints()
@@ -23,7 +23,7 @@ scalars.SetName("property")
 pd.GetPointData().AddArray(scalars)
 pd.GetPointData().SetActiveScalars("property")
 logWriter=vtk.vtkPolyDataWriter()
-file_name_log = "11well.vtk"
+file_name_log = "12well.vtk"
 logWriter.SetFileName(file_name_log)
 logWriter.SetInputData(pd)
 logWriter.Write()

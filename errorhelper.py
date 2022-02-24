@@ -18,8 +18,8 @@ def RMSE(real,test):
 
 test_samplepoints,p2=RFRHelper.readsamplepoints("3well_test.txt",5,5,1)
 
-rfrpoints=RFRHelper.read_txtpoints("RFR_Interpolation_result10_9well_blur.txt")
-okpoints=RFRHelper.read_txtpoints("OK_Interpolation_result10_9well_linear.txt")
+rfrpoints=RFRHelper.read_txtpoints("RFR_Interpolation_result15_9well_blur.txt")
+okpoints=RFRHelper.read_txtpoints("OK_Interpolation_result15_9well_linear.txt")
 
 rfrpoints_array=np.ones((30,30,30))
 okpoints_array=np.ones((30,30,30))
@@ -38,15 +38,26 @@ for test_point in test_samplepoints:
     rfr.append(rfrpoints_array[test_point[0]][test_point[1]][test_point[2]])
     ok.append(okpoints_array[test_point[0]][test_point[1]][test_point[2]])
 
-sss=abs(np.array(real)-np.array(rfr))
+# print(rfr)
+# print(ok)
+rfr_error=abs(np.array(real)-np.array(rfr))
 
-sss2=abs(np.array(real)-np.array(ok))
-print(sss)
-print(sss2)
+ok_error=abs(np.array(real)-np.array(ok))
+# print(rfr_error)
+# print(ok_error)
+
+nptxt=[]
+for idx,i in enumerate(test_samplepoints):
+    i.append(rfr[idx])
+    i.append(ok[idx])
+    i.append(rfr_error[idx])
+    i.append(ok_error[idx])
+    nptxt.append(i)
 # print(real)
 # print(rfr)
 # print(ok)
-np.array(ok)
+nptxt=np.array(nptxt)
+np.savetxt("nptxt.txt",nptxt)
 
 rfr_RMSE=RMSE(real,rfr)
 ok_RMSE=RMSE(real,ok)

@@ -54,10 +54,10 @@ def list_split(lines, comm_size):
     return res
 
 if __name__ == '__main__':
-    neighbour =5 # 邻域个数
+    neighbour =15 # 邻域个数
     samplepoints,xyz_points=RFRHelper.readsamplepoints('9well.txt',5,5,1)#读取样本数据
-    save_txt_path="OK_Interpolation_result5_9well_linear.txt"
-    save_vtk_path="OK_Interpolation_result5_9well_linear.vtk"
+    save_txt_path="OK_Interpolation_result15_9well_linear.txt"
+    save_vtk_path="OK_Interpolation_result15_9well_linear.vtk"
     if  comm_rank==0:
         start2 =time.clock()
         size_grid=RFRHelper.new3Dgrid(30)#新建网格30*30*30的

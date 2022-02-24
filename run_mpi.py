@@ -4,10 +4,10 @@ import os
 python_path = "python"
 
 
-#python_file = "OK_Interpolation_MPI.py"
-python_file = "RFR_Interpolation_MPI.py"
+python_file = "OK_Interpolation_MPI.py"
+#python_file = "RFR_Interpolation_MPI.py"
 
-total_process = "-np {}".format(7)  
+total_process = "-np {}".format(6)  
 
 
 #machinefile = "-machinefile /home/xxxxxx/myhosts"

@@ -13,15 +13,27 @@ comm_size = comm.Get_size()
 
 def main(size_grid,samplepoints,xyz_points,neighbour):
     start =time.clock()
-   
+    
     
     result_grids=[]
     for grid in size_grid:
         if grid not in xyz_points:
-            result_grids.append(RFRHelper.cal_interpolation_result(grid, neighbour,samplepoints)) 
+            dis_k_v={}
+            for samplepoint in samplepoints:
+                dist=RFRHelper.distance(grid[0],grid[1],grid[2],samplepoint[0],samplepoint[1],samplepoint[2])
+                if dist>0:
+                    xx = {dist:samplepoint}
+                    dis_k_v.update(xx)
+            dis_k_v2=sorted(dis_k_v.keys())
+            xyz_nei=[]
+            for value in dis_k_v2:
+                xyz_nei.append(dis_k_v[value])
+                if len(xyz_nei)>neighbour-1:
+                    break
+
+            result_grids.append(RFRHelper.RandomForestInterpolation3D(grid,xyz_nei)) 
         
-          
-            
+
         else:
             for samplepoint in samplepoints:
                 if samplepoint[0]==grid[0] and samplepoint[1]==grid[1] and samplepoint[2]==grid[2]:
@@ -48,12 +60,12 @@ def list_split(lines, comm_size):
     return res    
 
 if __name__ == '__main__':
-    neighbour = 5 # 搜索最近邻域点个数
+    neighbour = 15 # 搜索最近邻域点个数
     samplepoints,xyz_points=RFRHelper.readsamplepoints('9well.txt',5,5,1)#读取样本数据
-    save_txt_path="RFR_Interpolation_result5_9well.txt"
-    save_vtk_path="RFR_Interpolation_result5_9well.vtk"
-    save_txt_path_unblur="RFR_Interpolation_result5_9well_unblur.txt"
-    save_txt_path_blur="RFR_Interpolation_result5_9well_blur.txt"
+    save_txt_path="RFR_Interpolation_result15_9well.txt"
+    save_vtk_path="RFR_Interpolation_result15_9well.vtk"
+    save_txt_path_unblur="RFR_Interpolation_result15_9well_unblur.txt"
+    save_txt_path_blur="RFR_Interpolation_result15_9well_blur.txt"
     if  comm_rank==0:
         start2 =time.clock()
         size_grid=RFRHelper.new3Dgrid(30)#新建网格30*30*30的
