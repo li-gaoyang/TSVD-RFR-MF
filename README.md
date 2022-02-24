@@ -14,7 +14,8 @@ RFR_Interpolation_MPI为TSVD-RFR-MF插值方法，
 errorhelper.py是计算最终插值结果与验证测试数据的MAE和RMSE误差
 
 
-核心算法封装在RFRHelper.py文件中，RandomForestInterpolation3D方法就是利用随机森林空间插值核心函数。
+核心算法封装在RFRHelper.py文件中。
+类似于pykrige包中的OrdinaryKriging3D函数，本文把插值算法封装成RandomForestInterpolation3D函数。
 
 RandomForestInterpolation3D函数中的：xyz0表示未知点的坐标，只支持一个未知点坐标传入。
 xyz_nei表示附近的n个样本点（需要包含坐标点，以及坐标点的属性值）.
