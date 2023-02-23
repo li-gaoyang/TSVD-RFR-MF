@@ -31,6 +31,7 @@ Each point is the porosity value of 3D geological space. These values are calcul
 Because the interpolation operation of 3D geological body is large, we implemented a test demo with MPI. So that you can run it in a computing cluster. Of course, if your computer has an MPI environment, it can also run on a standalone computer.
 
 You can run "run_mpi.py" to run test core and get the results of a 3D geological body.
+The "RFR_Interpolation_MPI.py" is the TSVD-RFR Interpolation test in this paper.
 We also compared other interpolation schemes, which you can find in "run_mpi.py".
 
 
