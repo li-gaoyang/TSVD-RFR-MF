@@ -33,14 +33,15 @@ Because the interpolation operation of 3D geological body is large, we implement
 You can run "run_mpi.py" to run test core and get the results of a 3D geological body.
 We also compared other interpolation schemes, which you can find in "run_mpi.py".
 
-TSVD-RFR Interpolation core is in -
 
 The demo uses the "S14_8_train.txt" dataset. 
 The grid scale to be interpolated is 30 * 30 * 30. The known sample points are some well logs.
 Because some data are confidential, we have hidden the coordinate information of the well and used the porosity data of a geological horizon.
 
 
-In addition, we have encapsulated the core algorithm in "RFRHelper. py". You can find test samples in the "__ main __" function in "RFRHelper. py". The specific use method is similar to the OrderyKriging3D in pykrige(https://github.com/GeoStat-Framework).
+In addition, we have encapsulated the TSVD-RFR Interpolation core in "RFRHelper. py". 
+
+You can find test samples in the "__ main __" function in "RFRHelper. py". The specific use method is similar to the OrderyKriging3D in pykrige(https://github.com/GeoStat-Framework).
 
 We encapsulate the interface as "RandomForestInterpolation3D" function. So that everyone can use it conveniently. 
 
