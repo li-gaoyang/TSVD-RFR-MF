@@ -35,8 +35,6 @@ Because some data are confidential, we have hidden the coordinate information of
 
 In addition, we have encapsulated the TSVD-RFR Interpolation core in "RFRHelper.    py".
 
-You can find test samples in the "__ main __" function in "RFRHelper.    py".    The specific use method is similar to the OrderyKriging3D in pykrige(https://github.com/GeoStat-Framework).
-
 We encapsulate the interface as "RandomForestInterpolation3D" function.    So that everyone can use it conveniently.
 
 ##  3D visualization
